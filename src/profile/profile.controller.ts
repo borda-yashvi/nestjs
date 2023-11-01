@@ -40,16 +40,15 @@
 
 import { Controller, Post, Get, Put, Delete, Req, Param, Body, Query, Headers, HttpCode, HttpStatus, Response, Res, Header, Redirect, Ip, Injectable, Inject } from "@nestjs/common";
 import { Request } from "express"
-import { UserStore } from "./user.store";
-import { UserService } from "./user.service";
+import { ProfileService } from "./profile.service";
 import userDto from "src/dto/UserDto";
 
-@Controller("/user")
-export class UserController {
+@Controller("/profile")
+export class ProfileController {
     // constructor(@Inject("DATA_BASE_CONNECTION") private store: any) {
     //     console.log(store);
     // }
-    constructor(private userService: UserService) { }
+    constructor(private userService: ProfileService) { }
 
     @Post()
     createUser(@Body() user: userDto) {
