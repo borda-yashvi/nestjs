@@ -48,11 +48,11 @@ export class ProfileController {
     // constructor(@Inject("DATA_BASE_CONNECTION") private store: any) {
     //     console.log(store);
     // }
-    constructor(private userService: ProfileService) { }
+    constructor(private profileService: ProfileService) { }
 
     @Post()
     createUser(@Body() user: userDto) {
-        return this.userService.addUser(user)
+        return this.profileService.addUser(user)
     }
 
     // @Get()
@@ -62,16 +62,16 @@ export class ProfileController {
 
     @Get(':id')
     findById(@Param('id') id: number) {
-        return this.userService.findOneUser(id)
+        return this.profileService.findOneUser(id)
     }
 
     @Put(':id')
     updateUser(@Param('id') param: number, @Body() body: userDto) {
-        return this.userService.updateUser(param, body)
+        return this.profileService.updateUser(param, body)
     }
 
     @Delete(':id')
     deleteUser(@Param() param: any) {
-        return this.userService.deleteUser(param)
+        return this.profileService.deleteUser(param)
     }
 }

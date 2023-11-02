@@ -6,23 +6,23 @@ import { Profile } from './profile.entity';
 @Injectable()
 export class ProfileService {
     constructor(@InjectRepository(Profile)
-    private userService: Repository<Profile>,
+    private profileService: Repository<Profile>,
     ) { }
 
     async addUser(user: any) {
-        return this.userService.save(user)
+        return this.profileService.save(user)
     }
 
     async findOneUser(id: number) {
-        return await this.userService.findOne({ where: { id } });
+        return await this.profileService.findOne({ where: { id } });
     }
 
     async updateUser(id: number, user: Profile) {
-        return this.userService.update(id, user)
+        return this.profileService.update(id, user)
     }
 
     async deleteUser(id: number) {
-        return this.userService.delete(id)
+        return this.profileService.delete(id)
     }
 
 }

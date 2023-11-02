@@ -14,7 +14,7 @@ export class UserService {
     }
 
     async findOneUser(id: number) {
-        return await this.userService.findOne({ where: { id } });
+        return await this.userService.findOneBy({ id });
     }
 
     async updateUser(id: number, user: User) {

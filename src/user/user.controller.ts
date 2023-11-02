@@ -8,7 +8,7 @@
 
 //     // @Post("/profile")
 //     // @HttpCode(200)
-//     // @Redirect("/user/data", 200)
+//     // @Redirect("data", 200)
 //     // @HttpCode(HttpStatus.OK)
 //     // @Header('Cache-Control', "token...")
 //     // getProfile(@Param() params: Record<string, any>) {
@@ -17,7 +17,7 @@
 //     //     // return result
 
 //     //     // return {
-//     //     //     url: "/user/data",
+//     //     //     url: "data",
 //     //     //     statusCode: 200,
 //     //     // }
 //     // }
@@ -52,8 +52,12 @@ export class UserController {
     constructor(private userService: UserService) { }
 
     @Post()
+    @Redirect('http://user/data')
     createUser(@Body() user: userDto) {
-        return this.userService.addUser(user)
+        return {
+            url: "http://user/data"
+        }
+        // return this.userService.addUser(user)
     }
 
     // @Get()
