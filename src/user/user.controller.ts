@@ -52,12 +52,8 @@ export class UserController {
     constructor(private userService: UserService) { }
 
     @Post()
-    @Redirect('http://user/data')
     createUser(@Body() user: userDto) {
-        return {
-            url: "http://user/data"
-        }
-        // return this.userService.addUser(user)
+        return this.userService.addUser(user)
     }
 
     // @Get()
